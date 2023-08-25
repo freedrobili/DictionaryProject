@@ -2,12 +2,13 @@ server:
   port: 8080
 
 
-spring.datasource:
-  type: com.zaxxer.hikari.HikariDataSource
-  url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
-  username: postgres # тут пользователь
-  password: qwerty # тут пароль
-  hikari:
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
+    username: postgres # тут пользователь
+    password: qwerty # тут пароль
+    hikari:
     pool-name: HikariPool
     maximum-pool-size: 8
     minimum-idle: 2
@@ -17,8 +18,6 @@ spring.datasource:
     validation-timeout: 2000
     leak-detection-threshold: 5000
     register-mbeans: false
-
-spring:
   liquibase:
     url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
     user: postgres # тут пользователь
