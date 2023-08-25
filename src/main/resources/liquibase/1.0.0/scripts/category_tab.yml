@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - logicalFilePath: src/main/resources/liquibase/1.0.0/scripts/category_tab
+  - changeSet:
+      id: 1.0.0_0
+      author: ykudashkina
+      changes:
+        - createTable:
+            schemaName: dictionary
+            tableName: category_tab
+            remarks: Таблица с кодами категорий товаров
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    unique: true
+                  name: code
+                  type: char(4)
+                  remarks: Идитинфикатор записи в таблице. Уникален - PK
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: varchar(255)
+                  remarks: Наименование кодов категорий услуг
+
+
