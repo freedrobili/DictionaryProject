@@ -18,15 +18,11 @@ spring.datasource:
     leak-detection-threshold: 5000
     register-mbeans: false
 
-spring.liquibase:
-  url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
-  user: postgres # тут пользователь
-  password: qwerty # тут пароль
-  change-log: "classpath:/liquibase/changelog.yml"
-  default-schema: API
+spring:
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
+    user: postgres # тут пользователь
+    password: qwerty # тут пароль
+    change-log: "classpath:/liquibase/changelog.yml"
+    default-schema: API
 
-
-
-#logging:
-#  level:
-#    org.postgresql: TRACE
