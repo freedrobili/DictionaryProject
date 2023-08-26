@@ -106,10 +106,24 @@
 							<supportingFilesToGenerate>
 								ApiUtil.java
 							</supportingFilesToGenerate>
+<!--							<inputSpec>src/main/resources/openapi/shop-api.yml</inputSpec>-->
+							<modelPackage>ru.tinkoff.eacq.mma.shop.api.model</modelPackage>
+							<apiPackage>ru.tinkoff.eacq.mma.shop.api</apiPackage>
+							<output>D:/Java_project/DictionaryProject/generated-sources/swagger/</output>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<generatorName>spring</generatorName>
 							<configOptions>
+								<dateLibrary>java8-localdatetime</dateLibrary>
+								<skipDefaultInterface>true</skipDefaultInterface>
+								<serializableModel>true</serializableModel>
+								<interfaceOnly>true</interfaceOnly>
+								<hideGenerationTimestamp>true</hideGenerationTimestamp>
+								<useTags>true</useTags>
+								<library>spring-cloud</library>
 								<delegatePattern>true</delegatePattern>
 							</configOptions>
 						</configuration>
+
 					</execution>
 				</executions>
 			</plugin>
