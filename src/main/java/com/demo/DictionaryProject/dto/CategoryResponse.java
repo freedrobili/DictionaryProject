@@ -1,7 +1,12 @@
 package com.demo.DictionaryProject.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
 public class CategoryResponse {
     private List<Category> categories;
 
@@ -9,11 +14,4 @@ public class CategoryResponse {
         this.categories = categories;
     }
 
-    public List<Category> getCategories(){
-        return categories;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
-    }
 }

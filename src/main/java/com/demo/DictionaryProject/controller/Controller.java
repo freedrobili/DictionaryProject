@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/categories")
-
 public class Controller {
     public ResponseEntity<CategoryResponse> getCategoriesByProduct(@PathVariable String productName) {
         CategoryService categoryService = new CategoryService();
