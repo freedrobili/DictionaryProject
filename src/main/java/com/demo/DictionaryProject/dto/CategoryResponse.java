@@ -1,5 +1,6 @@
 package com.demo.DictionaryProject.dto;
 
+import com.demo.DictionaryProject.entity.Category;
 import lombok.Getter;
 import lombok.Setter;
 

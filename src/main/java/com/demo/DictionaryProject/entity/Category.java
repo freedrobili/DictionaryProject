@@ -1,4 +1,4 @@
-package com.demo.DictionaryProject.dto;
+package com.demo.DictionaryProject.entity;
 
 import lombok.Getter;
 import lombok.Setter;
