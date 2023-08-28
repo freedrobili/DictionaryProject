@@ -59,13 +59,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.projectlombok</groupId>-->
-<!--			<artifactId>lombok</artifactId>-->
-<!--			<version>1.18.12</version>-->
-<!--			<scope>provided</scope>-->
-<!--		</dependency>-->
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -112,7 +105,7 @@
 							<inputSpec>src/main/resources/open-api/dictionary-api.yml</inputSpec>
 							<modelPackage>ru.tinkoff.eacq.mma.dictionary.rest.model</modelPackage>
 							<apiPackage>ru.tinkoff.eacq.mma.dictionary.rest.controller.api</apiPackage>
-							<output>D:/Java_project/DictionaryProject/target/generated-sources/swagger/</output>
+							<output>${project.build.directory}/generated-sources/swagger/</output>
 							<generateSupportingFiles>false</generateSupportingFiles>
 							<generatorName>spring</generatorName>
 							<configOptions>
@@ -126,34 +119,6 @@
 								<library>spring-cloud</library>
 							</configOptions>
 						</configuration>
-
-<!--						<configuration>-->
-<!--							<inputSpec>-->
-<!--								D:/Java_project/DictionaryProject/src/main/resources/dictionary-api.yml-->
-<!--							</inputSpec>-->
-<!--							<generatorName>spring</generatorName>-->
-<!--							<apiPackage>com.baeldung.openapi.api</apiPackage>-->
-<!--							<modelPackage>com.baeldung.openapi.model</modelPackage>-->
-<!--							<supportingFilesToGenerate>-->
-<!--								ApiUtil.java-->
-<!--							</supportingFilesToGenerate>-->
-<!--&lt;!&ndash;							<inputSpec>src/main/resources/openapi/shop-api.yml</inputSpec>&ndash;&gt;-->
-<!--							<modelPackage>ru.tinkoff.eacq.mma.shop.api.model</modelPackage>-->
-<!--							<apiPackage>ru.tinkoff.eacq.mma.shop.api</apiPackage>-->
-<!--							<output>D:/Java_project/DictionaryProject/generated-sources/swagger/</output>-->
-<!--							<generateSupportingFiles>false</generateSupportingFiles>-->
-<!--							<generatorName>spring</generatorName>-->
-<!--							<configOptions>-->
-<!--								<dateLibrary>java8-localdatetime</dateLibrary>-->
-<!--								<skipDefaultInterface>true</skipDefaultInterface>-->
-<!--								<serializableModel>true</serializableModel>-->
-<!--								<interfaceOnly>true</interfaceOnly>-->
-<!--								<hideGenerationTimestamp>true</hideGenerationTimestamp>-->
-<!--								<useTags>true</useTags>-->
-<!--								<library>spring-cloud</library>-->
-<!--								<delegatePattern>true</delegatePattern>-->
-<!--							</configOptions>-->
-<!--						</configuration>-->
 					</execution>
 				</executions>
 			</plugin>

@@ -3,6 +3,7 @@ package com.demo.DictionaryProject.service.impl;
 import com.demo.DictionaryProject.entity.Category;
 import com.demo.DictionaryProject.repository.CategoryRepository;
 import com.demo.DictionaryProject.service.CategoryService;
+import liquibase.pro.packaged.C;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.eacq.mma.dictionary.rest.model.ShortCategories;
@@ -22,24 +23,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getCategoriesByProduct(String productName) {
-        return categoryRepository.findByProduct(productName);
-}
+    public ShortCategories getCategoriesByProduct(String productName) {
+        List<Category> categories = categoryRepository.findByProduct(productName);
 
-    @Override
-    public ShortCategories convertToShortCategories(List<Category> categories) {
         if (categories != null && !categories.isEmpty()) {
             ShortCategories shortCategories = new ShortCategories();
             List<ShortCategoriesResponse> shortCategoriesResponses = categories.stream()
-                    .map(category -> {
-                        ShortCategoriesResponse response = new ShortCategoriesResponse();
-                        response.setCode(String.valueOf(category.getCode()));
-                        response.setName(category.getName());
-                        response.setNeedsDocs(category.isNeedsDocs());
-                        response.setNeedsDocsReason(category.getNeedsDocsReason());
-                        response.setNeedsDocsList(category.getNeedsDocsList());
-                        return response;
-                    })
+                    .map(this::mapToShortCategories)
                     .collect(Collectors.toList());
 
             shortCategories.setCategories(shortCategoriesResponses);
@@ -47,5 +37,15 @@ public class CategoryServiceImpl implements CategoryService {
         } else {
             return null;
         }
+
+    }
+    private ShortCategoriesResponse mapToShortCategories(Category category){
+        ShortCategoriesResponse response =new ShortCategoriesResponse();
+        response.setCode(String.valueOf(category.getCode()));
+        response.setName(category.getName());
+        response.setNeedsDocs(category.isNeedsDocs());
+        response.setNeedsDocsReason(category.getNeedsDocsReason());
+        response.setNeedsDocsList(category.getNeedsDocsList());
+        return response;
     }
 }

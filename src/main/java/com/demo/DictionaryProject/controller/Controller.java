@@ -22,7 +22,6 @@ public class Controller implements AdminsCategoriesApi {
 
     @Override
     public ResponseEntity<ShortCategories> adminApiV1CategoriesProductNameGet(String productName) {
-        List<Category> categories = categoryService.getCategoriesByProduct(productName);
-        return ResponseEntity.ok(categoryService.convertToShortCategories(categories));
+        return ResponseEntity.ok(categoryService.getCategoriesByProduct(productName));
         }
     }

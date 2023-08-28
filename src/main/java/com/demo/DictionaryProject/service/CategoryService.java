@@ -8,6 +8,5 @@ import java.util.List;
 import java.util.Locale;
 
 public interface CategoryService {
-    List<Category> getCategoriesByProduct(String productName);
-    ShortCategories convertToShortCategories (List<Category> categories);
+    ShortCategories getCategoriesByProduct(String productName);
 }
