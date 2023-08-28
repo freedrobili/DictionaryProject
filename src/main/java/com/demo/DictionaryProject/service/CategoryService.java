@@ -30,7 +30,6 @@ public class CategoryService {
                     response.setNeedsDocs(category.isNeedsDocs());
                     response.setNeedsDocsReason(category.getNeedsDocsReason());
                     response.setNeedsDocsList(category.getNeedsDocsList());
-                    // Здесь вы можете установить остальные поля в ShortCategoriesResponse
                     return response;
                 })
                 .collect(Collectors.toList());
