@@ -2,6 +2,8 @@ package com.demo.DictionaryProject.controller;
 
 import com.demo.DictionaryProject.entity.Category;
 import com.demo.DictionaryProject.service.CategoryService;
+import com.demo.DictionaryProject.service.impl.CategoryServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import ru.tinkoff.eacq.mma.dictionary.rest.controller.api.AdminsCategoriesApi;
@@ -13,6 +15,7 @@ import java.util.List;
 public class Controller implements AdminsCategoriesApi {
     private final CategoryService categoryService;
 
+    @Autowired
     public Controller(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
@@ -20,12 +23,6 @@ public class Controller implements AdminsCategoriesApi {
     @Override
     public ResponseEntity<ShortCategories> adminApiV1CategoriesProductNameGet(String productName) {
         List<Category> categories = categoryService.getCategoriesByProduct(productName);
-
-        if (categories != null && !categories.isEmpty()) {
-            ShortCategories shortCategories = categoryService.convertToShortCategories(categories);
-            return ResponseEntity.ok(shortCategories);
-        } else {
-            return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(categoryService.convertToShortCategories(categories));
         }
     }
-}
