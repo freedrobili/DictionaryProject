@@ -13,11 +13,8 @@ import ru.tinkoff.eacq.mma.dictionary.rest.model.ShortCategories;
 import java.util.List;
 
 @RestController
-
 public class Controller implements AdminsCategoriesApi {
     CategoryService categoryService = new CategoryService();
-
-
 
     @Override
     public ResponseEntity<ShortCategories> adminApiV1CategoriesProductNameGet(String productName) {
