@@ -7,16 +7,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.tinkoff.eacq.mma.dictionary.rest.controller.api.AdminsCategoriesApi;
+import ru.tinkoff.eacq.mma.dictionary.rest.model.ShortCategories;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/categories")
-public class Controller {
-    public ResponseEntity<CategoryResponse> getCategoriesByProduct(@PathVariable String productName) {
-        CategoryService categoryService = new CategoryService();
-        List<Category> categories = categoryService.getCategoriesByProduct(productName);
-        CategoryResponse response = new CategoryResponse(categories);
-        return ResponseEntity.ok(response);
+
+public class Controller implements AdminsCategoriesApi {
+    CategoryService categoryService = new CategoryService();
+
+
+
+    @Override
+    public ResponseEntity<ShortCategories> adminApiV1CategoriesProductNameGet(String productName) {
+        ShortCategories shortCategories = categoryService.getShortCategoriesByProduct(productName);
+        if (shortCategories != null) {
+            return ResponseEntity.ok(shortCategories);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
