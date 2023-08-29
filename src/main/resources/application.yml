@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    jdbcUrl: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
+    url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
     username: postgres # тут пользователь
     password: qwerty # тут пароль
     hikari:
