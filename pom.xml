@@ -82,6 +82,24 @@
 			<version>2.9.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.0.11.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -105,7 +123,7 @@
 							<inputSpec>src/main/resources/open-api/dictionary-api.yml</inputSpec>
 							<modelPackage>ru.tinkoff.eacq.mma.dictionary.rest.model</modelPackage>
 							<apiPackage>ru.tinkoff.eacq.mma.dictionary.rest.controller.api</apiPackage>
-							<output>${project.build.directory}/generated-sources/swagger/</output>
+							<output>D:/Java_project/DictionaryProject/generated-sources/swagger/</output>
 							<generateSupportingFiles>false</generateSupportingFiles>
 							<generatorName>spring</generatorName>
 							<configOptions>
