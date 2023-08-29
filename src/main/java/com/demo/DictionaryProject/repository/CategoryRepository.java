@@ -1,6 +1,6 @@
 package com.demo.DictionaryProject.repository;
 
-import com.demo.DictionaryProject.entity.Category;
+import com.demo.DictionaryProject.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

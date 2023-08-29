@@ -1,15 +1,15 @@
 package com.demo.DictionaryProject.service.impl;
 
-import com.demo.DictionaryProject.entity.Category;
+import com.demo.DictionaryProject.model.Category;
 import com.demo.DictionaryProject.repository.CategoryRepository;
 import com.demo.DictionaryProject.service.CategoryService;
-import liquibase.pro.packaged.C;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.eacq.mma.dictionary.rest.model.ShortCategories;
 import ru.tinkoff.eacq.mma.dictionary.rest.model.ShortCategoriesResponse;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,21 +25,19 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public ShortCategories getCategoriesByProduct(String productName) {
         List<Category> categories = categoryRepository.findByProduct(productName);
-
-        if (categories != null && !categories.isEmpty()) {
-            ShortCategories shortCategories = new ShortCategories();
-            List<ShortCategoriesResponse> shortCategoriesResponses = categories.stream()
-                    .map(this::mapToShortCategories)
-                    .collect(Collectors.toList());
-
-            shortCategories.setCategories(shortCategoriesResponses);
-            return shortCategories;
-        } else {
+        if (Objects.isNull(categories) || categories.isEmpty()){
             return null;
         }
+        ShortCategories shortCategories = new ShortCategories();
+        List<ShortCategoriesResponse> shortCategoriesResponses = categories.stream()
+                .map(this::buildToShortCategories)
+                .collect(Collectors.toList());
 
+        shortCategories.setCategories(shortCategoriesResponses);
+        return shortCategories;
     }
-    private ShortCategoriesResponse mapToShortCategories(Category category){
+
+    private ShortCategoriesResponse buildToShortCategories(Category category){
         ShortCategoriesResponse response =new ShortCategoriesResponse();
         response.setCode(String.valueOf(category.getCode()));
         response.setName(category.getName());

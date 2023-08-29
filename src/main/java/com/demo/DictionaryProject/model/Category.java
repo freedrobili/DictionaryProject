@@ -1,4 +1,4 @@
-package com.demo.DictionaryProject.entity;
+package com.demo.DictionaryProject.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
