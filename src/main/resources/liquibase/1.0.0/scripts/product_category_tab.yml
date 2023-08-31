@@ -19,12 +19,13 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
+                    references: product_type
                   name: product
                   type: varchar(20)
                   remarks: Продукт
-                  enum:
-                    name: product_type
-                    values: 'ecom', 'a2c', 'c2a', 'safeD', 'eal'
+#                  enum:
+#                    name: product_type
+#                    values: "ecom", "a2c", "c2a", "safeD", "eal"
               - column:
                   constraints:
                     nullable: false
