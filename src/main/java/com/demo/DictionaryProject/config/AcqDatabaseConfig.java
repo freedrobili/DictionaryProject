@@ -21,29 +21,4 @@ public class AcqDatabaseConfig extends HikariConfig {
         return new HikariDataSource(this);
     }
 
-    @Bean
-    @ConfigurationProperties(prefix = "datasource.liquibase")
-    public LiquibaseProperties primaryLiquibaseProperties() {
-        return new LiquibaseProperties();
-    }
-
-    @Bean
-    @ConfigurationProperties(prefix = "datasource.secondaryLiquibase.liquibase")
-    public LiquibaseProperties secondaryLiquibaseProperties() {
-        return new LiquibaseProperties();
-    }
-
-    private static SpringLiquibase springLiquibase(DataSource dataSource, LiquibaseProperties properties) {
-        SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setDataSource(dataSource);
-        liquibase.setChangeLog(properties.getChangeLog());
-        liquibase.setContexts(properties.getContexts());
-        liquibase.setDefaultSchema(properties.getDefaultSchema());
-        liquibase.setDropFirst(properties.isDropFirst());
-        liquibase.setShouldRun(properties.isEnabled());
-        liquibase.setLabels(properties.getLabels());
-        liquibase.setChangeLogParameters(properties.getParameters());
-        liquibase.setRollbackFile(properties.getRollbackFile());
-        return liquibase;
-    }
 }
