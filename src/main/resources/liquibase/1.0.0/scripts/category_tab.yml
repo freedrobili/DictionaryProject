@@ -23,5 +23,10 @@ databaseChangeLog:
                   name: name
                   type: varchar(255)
                   remarks: Наименование кодов категорий услуг
-
+        - addForeignKeyConstraint:
+            baseTableName: category_tab
+            baseColumnNames: code
+            constraintName: fk_product_category_category_code
+            referencedTableName: product_category_tab
+            referencedColumnNames: category_code
 
