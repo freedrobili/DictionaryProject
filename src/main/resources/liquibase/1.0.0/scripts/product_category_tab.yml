@@ -13,11 +13,14 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
+                    foreignKeyName: fk_product_category_category_code
+                    references: category_tab(code)
                   name: category_code
                   type: char(4)
                   remarks: FK category code. Код кактегории.
               - column:
                   constraints:
+                    primaryKey: true
                     nullable: false
                     references: product_type
                   name: product

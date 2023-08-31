@@ -23,5 +23,5 @@ spring:
     user: postgres # тут пользователь
     password: qwerty # тут пароль
     change-log: "classpath:/liquibase/changelog.yml"
-    default-schema: API
+    default-schema: dictionary
 
