@@ -1,7 +1,7 @@
 databaseChangeLog:
   - logicalFilePath: src/main/resources/liquibase/1.0.0/scripts/data_category
   - changeSet:
-      id: 1.0.0_0
+      id: 1.0.0_1
       author: ykudashkina
       changes:
         - insert:

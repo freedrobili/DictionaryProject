@@ -5,23 +5,23 @@ server:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
+    jdbc-url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
     username: postgres # тут пользователь
     password: qwerty # тут пароль
-    hikari:
-    pool-name: HikariPool
-    maximum-pool-size: 8
-    minimum-idle: 2
-    idle-timeout: 150000
-    max-lifetime: 300000
-    connection-timeout: 5000
-    validation-timeout: 2000
-    leak-detection-threshold: 5000
-    register-mbeans: false
+#    hikari:
+#      pool-name: HikariPool
+#      maximum-pool-size: 8
+#      minimum-idle: 2
+#      idle-timeout: 150000
+#      max-lifetime: 300000
+#      connection-timeout: 5000
+#      validation-timeout: 2000
+#      leak-detection-threshold: 5000
+#      register-mbeans: false
   liquibase:
     url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
     user: postgres # тут пользователь
     password: qwerty # тут пароль
     change-log: "classpath:/liquibase/changelog.yml"
-    default-schema: API
+    default-schema: dictionary
 
